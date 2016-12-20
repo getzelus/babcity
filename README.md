@@ -12,3 +12,11 @@ This is the pre-alpha version.
 The list of future features will be released soon. 
 Feel free to commit ! 
 
+It is a collaborative project. 
+The forum is :
+http://www.html5gamedevs.com/forum/28-questions-answers/
+
+Contributors :
+- getzel
+- nabroski
+
