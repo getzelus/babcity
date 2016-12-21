@@ -45,7 +45,7 @@ var camera = new BABYLON.FreeCamera("FreeCamera", new BABYLON.Vector3(0, 15, 5),
 camera.setTarget(BABYLON.Vector3.Zero());
 //camera.attachControl(canvas, false);
 
-
+	 
 var skybox = BABYLON.Mesh.CreateBox("skybox", 1000.0, scene);
 var skyboxMaterial = new BABYLON.StandardMaterial("skyboxMat", scene);
 skyboxMaterial.backFaceCulling = false;
@@ -107,9 +107,7 @@ for (var i=0,l=obstacles.length; i<l; i++){
 }
 
 
-
 var man;
-
 
 var manSpeed = 0.6;
 var idleStart = false;
@@ -159,9 +157,7 @@ BABYLON.SceneLoader.ImportMesh("", "assets/manbab/", "man.babylon", scene, funct
 					
 }); // import man
 
-
-
-
+	 
 
 function anim(){
 
@@ -179,7 +175,7 @@ function anim(){
 
 } //anim()
 
-
+	 
 function look(){
 	
 	var diffMouseX = mouseX - oldMouseX;
@@ -199,8 +195,7 @@ function look(){
 	
 }//look()
 
-
-
+	 
 function moveWithCollision(){
 	
 	var vectorMove = new BABYLON.Vector3(0,gravity,0);
@@ -273,8 +268,7 @@ window.addEventListener("keyup", function (e) {
 
 	
 function game(){
-	
-	
+		
 	look();	
 	anim();	
 	moveWithCollision();
@@ -287,7 +281,7 @@ engine.runRenderLoop(function () {
 	
 	if (gameState>-1) { timer++; }
 	if (timer>30 && gameState == 0) { 
-		// Once the assets are loaded, timer ensure that the server has time. 
+		// Once the assets are loaded, timer ensures that and can help with programming.
 		// Next, we can put a menu.
 		info.innerHTML = "Loaded <br/> Press k to switch between qwerty/azerty"; gameState = 1; 
 	}
