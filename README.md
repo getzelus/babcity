@@ -1,7 +1,7 @@
 # babcity
 
 Babcity is a 3D multiplayer browser game with an open world.
-The goal is to reach the level of a complete game.
+The goal of this project is to reach the features of a complete game.
 
 The free technologies used are :
 - Babylon.js (WebGL framework)
