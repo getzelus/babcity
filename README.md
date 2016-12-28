@@ -15,6 +15,6 @@ Feel free to commit !
 
 It is a collaborative project. 
 The forum is :
-http://www.html5gamedevs.com/forum/28-questions-answers/
+http://www.html5gamedevs.com/topic/27229-babcity/
 
 
