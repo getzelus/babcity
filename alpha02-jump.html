@@ -105,7 +105,7 @@ obstacles.push(building);
 obstacles.push( new BABYLON.Mesh.CreateBox("platform", 1.0, scene) );
 obstacles[1].scaling.x = 20;
 obstacles[1].scaling.z = 10;
-obstacles[1].position.y = 8;
+obstacles[1].position.y = 12;
 obstacles[1].scaling.y = 4;
 
 
@@ -154,7 +154,6 @@ var jumpTimer = 0;
 var grounded = true;
 var oldManPosY = 0;
 
-
 var timer = 0;
 var gameState = -1;
 
@@ -175,8 +174,9 @@ BABYLON.SceneLoader.ImportMesh("", "assets/manbab/", "man.babylon", scene, funct
 	
 	man.checkCollisions = true;
 	man.applyGravity = true;
-	man.ellipsoid = new BABYLON.Vector3(1.0, 0.2, 1.5);
-	man.ellipsoidOffset = new BABYLON.Vector3(0, 0.2, 0);
+	
+	man.ellipsoid = new BABYLON.Vector3(1.0, 10, 1.5);
+	man.ellipsoidOffset = new BABYLON.Vector3(0, 20, 0);
 	//not sure about these numbers
 	
 	gameState++;
@@ -207,14 +207,14 @@ function anim(){
 function look(){
 	
 	var diffMouseX = mouseX - oldMouseX;
-	diffMouseX = diffMouseX/40;
+	diffMouseX = diffMouseX/100;
 	
 	man.rotation.y += diffMouseX;	
 	oldMouseX = mouseX;
 	
 	
 	var diffMouseY = mouseY - oldMouseY;
-	diffMouseY = diffMouseY/100;
+	diffMouseY = diffMouseY/400;
 	camera.rotation.x += diffMouseY;
 	
 	if (camera.rotation.x > 1) { camera.rotation.x = 1; }
@@ -246,9 +246,6 @@ function moveWithCollision(){
 			grounded = true;
 		}
 		oldManPosY = man.position.y;
-		
-		
-		//if (man.intersectsMesh(ground)) { grounded = true; }
 			
 		/*
 		for (var i=0,l=obstacles.length; i<l; i++){
@@ -257,6 +254,7 @@ function moveWithCollision(){
 			}// if intersects
 		} // for 	
 		*/
+		
 	} //if !grounded
 	
 	if (jumpKey && jumpKeyReleased && grounded ){
@@ -273,7 +271,23 @@ function moveWithCollision(){
 
 	man.moveWithCollisions(vectorMove);
 	
+
+	
 }//moveWithCollision
+
+
+var colltest = false;
+
+function testf(){
+
+	if (man.intersectsMesh(obstacles[1])){
+		colltest = true;
+	}else{
+		colltest = false;
+	}
+
+}//testf()
+
 
 
 
@@ -335,8 +349,9 @@ function game(){
 	look();	
 	anim();	
 	moveWithCollision();
+	testf();
 	
-	debug.innerHTML = 'grounded : ' + grounded;
+	debug.innerHTML = 'collide platform : ' + colltest;
 }//game()		
 		
 	
